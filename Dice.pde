@@ -5,6 +5,7 @@ int totalThree=0;
 int totalFour=0;
 int totalFive=0;
 int totalSix=0;
+int highScore=0;
 void setup(){
  size(600,600);
  background(0);
@@ -23,6 +24,7 @@ void draw(){
   fill(255);
   textSize(17);
   text("Your total is "+total,250,550);
+  text("Your highscore is "+highScore,250,580);
   textSize(13);
   text("There are "+totalOne+" total ones",100,530);
   text("There are "+totalTwo+" total twos",100,540);
@@ -42,6 +44,7 @@ totalThree=0;
 totalFour=0;
  totalFive=0;
 totalSix=0;
+
   redraw();
   
 }
@@ -54,6 +57,8 @@ class Dice{
   Dice(int x, int y, int side){
     myRoll=(int)(Math.random()*6+1);
     total=total+myRoll;
+    if(total>highScore)
+highScore=total;
     myX=x;
     myY=y;
     mySide=side;
